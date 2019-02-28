@@ -88,7 +88,7 @@ class User
     {
         $bulk = new \MongoDB\Driver\BulkWrite();
         if (empty($params['id'])) {
-            throw new \InvalidArgumentException;
+            throw new \InvalidArgumentException('Id. parameter is mandatory');
         }
         $userId =  (int) $params['id'];
         $bulk->update(['userId' => $userId], ['$set' => $params['request_body']]);
@@ -127,7 +127,7 @@ class User
     {
         $bulk = new \MongoDB\Driver\BulkWrite();
         if (empty($params['id'])) {
-            throw new \InvalidArgumentException;
+            throw new \InvalidArgumentException('Id. parameter is mandatory');
         }
         $userId =  (int) $params['id'];
         $bulk->delete(['userId' => $userId]);
